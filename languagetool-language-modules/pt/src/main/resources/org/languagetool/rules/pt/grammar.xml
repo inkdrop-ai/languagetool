@@ -17301,6 +17301,31 @@ O namorado dela era um ladrão.
           <example>Tom disse que Marta estava com sede e que queria ir pra casa.</example>
       </antipattern>
       <antipattern>
+          <token regexp='yes'>[dn]?[oa]s?</token>
+          <token regexp='yes' skip='-1'>qual|quais</token>
+          <token>e</token>
+          <token>que</token>
+          <example>Ensombrou o seu desempenho do cargo ministerial, no qual pouco pôde desenvolver, e que abandonou após um ano.</example>
+      </antipattern>
+      <antipattern>
+          <token skip='-1'>onde</token>
+          <token>e</token>
+          <token>que</token>
+          <example>Em um material onde as dimensões físicas dependem da aplicação de pressão e que acaba por produzir um campo elétrico.</example>
+      </antipattern>
+      <antipattern>
+          <token postag='VMP.+' postag_regexp='yes' skip='-1'/>
+          <token>e</token>
+          <token>que</token>
+          <example>Essa é uma tática recorrente, elaborada por ele, e que ficou padronizada.</example>
+      </antipattern>
+      <antipattern>
+          <token skip='-1'>que</token>
+          <token>e</token>
+          <token>que</token>
+          <example>Ele explica que não pode vir e que não quer mais participar.</example>
+      </antipattern>
+      <antipattern>
         <token>Wall</token>
         <token regexp='yes' spacebefore='no'>-|·</token>
         <token spacebefore='no'>E</token>
@@ -17310,7 +17335,7 @@ O namorado dela era um ladrão.
         <token>E</token>
       </antipattern>
       <pattern>
-          <token negate_pos='yes' postag='SENT_START'/>
+          <token negate_pos='yes' postag='SENT_START|AQ.+' postag_regexp='yes'/>
         <marker>
           <token>e</token>
           <token>que</token>
@@ -17319,9 +17344,10 @@ O namorado dela era um ladrão.
         <token postag='V.+|SPS.+|NC.+|AQ.+|DA.+|DI.+|RG|NP.+|RM' postag_regexp='yes'/>
       </pattern>
       <message>Em certos contextos, esta perífrase pode ser simplificada.</message>
-      <suggestion>e \4</suggestion>
-      <suggestion>que \4</suggestion>
-      <example correction="e queria|que queria">Ele é o Rui <marker>e que queria</marker> comer bem.</example>
+      <suggestion> e \4</suggestion>
+      <suggestion> que \4</suggestion>
+      <suggestion>, que \4</suggestion>
+      <example correction=" e queria| que queria|, que queria">Ele é o Rui<marker> e que queria</marker> comer bem.</example>
       <example>E que se supõe que devo fazer quando me xingar?</example>
 
       <example>Todos dizem que Kate é um gênio e que terá um futuro próspero.</example>
@@ -28875,7 +28901,7 @@ O namorado dela era um ladrão.
           <token>à</token>
           <token postag='DI.M.+' postag_regexp='yes' min='0'/>
           <token regexp='yes'>tempo|&expressoes_de_tempo;
-            <exception regexp='yes'>data|época|era|altura|hora|idade|ocasião|temporada</exception>
+            <exception regexp='yes'>data|época|semanas?|era|altura|hora|idade|ocasião|temporada</exception>
           </token>
         </pattern>
         <message>Se for um erro ortográfico, substitua por <suggestion>há \2 \3</suggestion>.</message>
@@ -47136,6 +47162,10 @@ O namorado dela era um ladrão.
 
     <!-- VER observar/constatar -->
     <rulegroup id='VER_OBSERVAR_CONSTATAR' name="Ver → Observar/Constatar" type="style" tags="picky">
+      <antipattern>
+        <token inflected='yes' skip='-1'>ver</token>
+        <token regexp='yes'>filmes?|vídeos?|séries?</token>
+      </antipattern>
       <!--      Created by Marco A.G.Pinto, Portuguese rule 2022-01-22 + 2022-02-06 (Checked/Enhanced) (1-JAN-2022+)      -->
       <!--
       É fácil como podem ver na figura. → É fácil como podem constatar na figura.
@@ -47696,6 +47726,31 @@ O namorado dela era um ladrão.
         <token regexp='yes'>miau|auau</token>
         <token regexp='yes' min='0'>[«»“”"'‘’]</token>
         <example>O gato faz "miau".</example>
+      </antipattern>
+      <antipattern>
+        <token inflected='yes'>fazer</token>
+        <token>as</token>
+        <token>pazes</token>
+      </antipattern>
+      <antipattern>
+        <token inflected='yes' skip='-1'>fazer</token>
+        <token regexp='yes'>bicos?|biquinhos?|hora</token>
+        <example>Ela faz um pequeno bico</example>
+      </antipattern>
+      <antipattern>
+        <token inflected='yes'>fazer</token>
+        <token regexp='yes'>sozinh[oa]s?</token>
+      </antipattern>
+      <antipattern>
+        <token>como</token>
+        <token postag='V.+' postag_regexp='yes' min='0'/>
+        <token inflected='yes'>fazer</token>
+        <token>para</token>
+        <example>Como podemos fazer pra efetuar isso?</example>
+      </antipattern>
+      <antipattern>
+        <token inflected='yes'>fazer</token>
+        <token>sexo</token>
       </antipattern>
       <antipattern>
         <token inflected='yes'>vir</token>

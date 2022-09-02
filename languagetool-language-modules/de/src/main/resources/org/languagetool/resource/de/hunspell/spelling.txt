@@ -50673,9 +50673,12 @@ TWh
 BMWK
 regasifizieren
 regasifiziert/A
+denazifizieren
+denazifiziert/A
 nachfragedämpfend/A
 Mildhybrid/S
 Mildhybride/N
+Game-Changer/NS
 Leserempfehlung
 Leserempfehlungen
 Traditionsstandort/S
